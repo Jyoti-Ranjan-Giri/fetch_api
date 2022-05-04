@@ -8,11 +8,23 @@
 	</head>
 	<body>
 		<button id="getText">Get Text</button>
+		<button id="getJson">Get Json</button>
 		<script>
 			document.getElementById('getText').addEventListener('click', getText);
 			function getText() {
 				fetch('sample.txt')
 					.then((res) => res.text())
+					.then((data) => {
+						console.log(data);
+					})
+					.catch((err) => {
+						console.log(err);
+					});
+			}
+			document.getElementById('getJson').addEventListener('click', getJson);
+			function getJson() {
+				fetch('users.json')
+					.then((res) => res.json())
 					.then((data) => {
 						console.log(data);
 					})
